@@ -14,7 +14,7 @@ angular.module('cnoa', ['ionic'])
         });
     })
 
-    .config(["$stateProvider", function ($stateProvider) {
+    .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
 
 
 
@@ -25,5 +25,72 @@ angular.module('cnoa', ['ionic'])
                 controller: 'homeController as home'
             })
 
+        
+        ////////////////////////////////////////////////////////
+        //////////////// Quienes somos y derivados /////////////
+        ////////////////////////////////////////////////////////
+        
+        
+        .state('quienesSomos', {
+            
+            url: "/quienes-somos",
+            templateUrl: 'js/views/quienesSomos.view.tpl',
+            controller: 'quienesSomosController as quienesSomos'
+            
+        })
+        
+        
+        ////////////////////////////////////////////////////////
+        //////////////// Estructura y derivados ////////////////
+        ////////////////////////////////////////////////////////
+        
+        .state('estructura', {
+            
+            url: "/estructura-organizacional",
+            templateUrl: 'js/views/estructuraOrganizacional.view.tpl',
+            controller: 'estructuraController as estructura'
+            
+        })
+        
+        
+        ////////////////////////////////////////////////////////
+        //////////// Lineas de accion y derivados //////////////
+        ////////////////////////////////////////////////////////
+        
+        .state('lineasAccion', {
+            
+            url: "/lineas-de-accion",
+            templateUrl: 'js/views/lineasAccion.view.tpl',
+            controller: 'lineasAccionController as lineasAccion'
+            
+        })
+        
+        ////////////////////////////////////////////////////////
+        ///////////////// Noticias y derivados /////////////////
+        ////////////////////////////////////////////////////////
+        
+        .state('noticias', {
+            
+            url: "/noticias",
+            templateUrl: 'js/views/noticias.view.tpl',
+            controller: 'noticiasController as noticias'
+            
+        })
+        
+        
+        ////////////////////////////////////////////////////////
+        ///////////////// Noticias y derivados /////////////////
+        ////////////////////////////////////////////////////////
+        
+        .state('galeria', {
+            
+            url: "/galeria",
+            templateUrl: 'js/views/galeria.view.tpl',
+            controller: 'galeriaController as galeria'
+            
+        })
+        
+        
+        $urlRouterProvider.when('', '/');
 
 }])

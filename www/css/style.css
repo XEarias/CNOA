@@ -1,16 +1,109 @@
+@font-face {
+    font-family: BN;
+    src: url(../fonts/BebasNeue-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: BN;
+    src: url(../fonts/BebasNeue-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: BN;
+    src: url(../fonts/BebasNeue-Book.ttf);
+    font-weight: 300;
+}
+
+
+@font-face {
+    font-family: BN;
+    src: url(../fonts/BebasNeue-Thin.ttf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: BN;
+    src: url(../fonts/BebasNeue-Light.ttf);
+    font-weight: 100;
+}
+
+
 .barra-gris-principal{
     
     background-color: #ececec;
+
 }
 
-.logo-principal{
+.barra-gris-principal .title img{
+    
+    
+    height: 100%;
+    
+}
+
+
+/***********************************************/
+/******************* TODO  *********************/
+/***********************************************/
+
+
+a.item-content{
+    padding: 0px !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px  !important;
+    padding-right: 15px  !important;
+    
+}
+
+
+.imagen-principal-seccion{
     
     
     width: 100%;
+    margin-top: 40px;
+    position: relative;
+    top: -40px;
+    
+}
+
+.menu-principal-seccion ion-item {
+    font-family: BN;
+    font-size: 22px;
+    color: grey;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: -44px;
+}
+
+
+.bar-subheader .title{
+    
+    color: white;
+    font-family: BN;
+    font-size: 24px;
+}
+
+/************************************************/
+/******************** HOME **********************/
+/************************************************/
+
+.logo-principal{
+    
+    width: 100%;
+    margin-top: 40px;
+
 }
 
 .menu-principal img{
-    
     
     vertical-align: middle;
     
@@ -20,12 +113,119 @@
     
     border-top: 2px solid rgb(219, 109, 109); 
     
-    
 }
+
+.menu-principal ion-item:first-child i{
+    
+    color:#db6d6d;
+    font-size: 22px;
+}
+
 
 .menu-principal ion-item:nth-child(2){
     
     border-top: 2px solid #db6d6d;
-    border-bottom: 1px solid #db6d6d;
     
 }
+
+.menu-principal ion-item:nth-child(2) i{
+    
+    color:#e9885a;
+    font-size: 22px;
+    
+}
+
+
+.menu-principal ion-item:nth-child(3){
+    
+    border-top: 2px solid #e9885a;
+   
+    
+}
+
+
+.menu-principal ion-item:nth-child(3) i{
+    
+    color: #face47;
+    font-size: 22px;
+   
+    
+}
+
+
+.menu-principal ion-item:nth-child(4){
+    
+    border-top: 2px solid #face47;
+   
+    
+}
+
+.menu-principal ion-item:nth-child(4) i{
+    
+    color: #d6e074;
+    font-size: 22px;
+   
+}
+
+.menu-principal ion-item:nth-child(5){
+    
+    border-top: 2px solid #d6e074;
+   
+    
+}
+
+.menu-principal ion-item:nth-child(5) i{
+    
+    color: #b3cd52;
+    font-size: 22px;
+   
+}
+
+
+.menu-principal ion-item:nth-child(6){
+    
+    border-top: 2px solid #b3cd52;
+    border-bottom: 2px solid #4fb67a;
+    
+}
+
+.menu-principal ion-item {
+    font-family: BN;
+    font-size: 22px;
+    color: grey;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+
+/************************************************/
+/*********** QUIENES SOMOS **********************/
+/************************************************/
+
+.quienes-somos.bar-subheader{
+    
+    background-color: #d04040;
+    
+}
+
+.quienes-somos.menu-principal-seccion ion-item {
+     border-top: 2px solid #db6d6d;
+}
+
+.quienes-somos.menu-principal-seccion ion-item i{
+    
+     font-size: 22px;
+     color: #db6d6d;
+}
+
+.quienes-somos.menu-principal-seccion ion-item:last-child {
+     border-bottom: 2px solid #db6d6d;
+}
+
+
+
