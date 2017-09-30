@@ -34,11 +34,38 @@ angular.module('cnoa', ['ionic'])
         .state('quienesSomos', {
             
             url: "/quienes-somos",
-            templateUrl: 'js/views/quienesSomos.view.tpl',
-            controller: 'quienesSomosController as quienesSomos'
+            templateUrl: 'js/views/quienesSomos.view.tpl'
             
         })
         
+        
+        .state('nosotros', {
+            
+            url: "/nosotros",
+            templateUrl: 'js/views/nosotros.view.tpl'
+            
+        })
+        
+        .state('vision', {
+            
+            url: "/vision",
+            templateUrl: 'js/views/vision.view.tpl'
+            
+        })
+        
+        .state('mision', {
+            
+            url: "/mision",
+            templateUrl: 'js/views/mision.view.tpl'
+            
+        })
+        
+        .state('dondeEstamos', {
+            
+            url: "/donde-estamos",
+            templateUrl: 'js/views/dondeEstamos.view.tpl'
+            
+        })
         
         ////////////////////////////////////////////////////////
         //////////////// Estructura y derivados ////////////////
@@ -47,8 +74,7 @@ angular.module('cnoa', ['ionic'])
         .state('estructura', {
             
             url: "/estructura-organizacional",
-            templateUrl: 'js/views/estructuraOrganizacional.view.tpl',
-            controller: 'estructuraController as estructura'
+            templateUrl: 'js/views/estructuraOrganizacional.view.tpl'
             
         })
         
@@ -60,22 +86,108 @@ angular.module('cnoa', ['ionic'])
         .state('lineasAccion', {
             
             url: "/lineas-de-accion",
-            templateUrl: 'js/views/lineasAccion.view.tpl',
-            controller: 'lineasAccionController as lineasAccion'
+            templateUrl: 'js/views/lineasAccion.view.tpl'
             
         })
+        
+        .state('fortalecimiento', {
+            
+            url: "/fortalecimiento-organizacional",
+            templateUrl: 'js/views/fortalecimientoOrganizacional.view.tpl'
+            
+        })
+        
+        .state('incidencia', {
+            
+            url: "/incidencia-politica",
+            templateUrl: 'js/views/incidenciaPolitica.view.tpl'
+            
+        })
+        
+        .state('territorio', {
+            
+            url: "/territorio-y-territorialidad",
+            templateUrl: 'js/views/territorio.view.tpl'
+            
+        })
+        
+        .state('comunicacion', {
+            
+            url: "/comunicacion",
+            templateUrl: 'js/views/comunicacion.view.tpl'
+            
+        })
+        
+        .state('equidad', {
+            
+            url: "/equidad-de-genero",
+            templateUrl: 'js/views/equidad.view.tpl'
+            
+        })
+        
+        .state('infancia', {
+            
+            url: "/enfasis-de-infancia",
+            templateUrl: 'js/views/infancia.view.tpl'
+            
+        })
+        
         
         ////////////////////////////////////////////////////////
         ///////////////// Noticias y derivados /////////////////
         ////////////////////////////////////////////////////////
         
-        .state('noticias', {
+        .state('noticiasMenu', {
             
-            url: "/noticias",
-            templateUrl: 'js/views/noticias.view.tpl',
-            controller: 'noticiasController as noticias'
+            url: "/menu-noticias",
+            templateUrl: 'js/views/noticiasMenu.view.tpl'
             
         })
+        
+        .state('noticiasFace', {
+            
+            url: "/noticias-afro",
+            templateUrl: 'js/views/noticiasFace.view.tpl',
+            controller: 'noticiasFaceController as noticiasFace'
+            
+        })
+        
+        
+        .state('noticiasFaceIndividual', {
+            
+            url: "/noticias-afro/:id",
+            templateUrl: 'js/views/noticiasFace.individual.view.tpl',
+            controller: 'noticiasFaceIndividualController as noticiasFaceIndividual',
+            params: {
+                image: null,
+                message: null,
+                created_time: null
+            }
+            
+        })
+        
+        .state('noticiasWP', {
+            
+            url: "/noticias-afro",
+            templateUrl: 'js/views/noticiasWP.view.tpl',
+            controller: 'noticiasWPController as noticiasWP'
+            
+        })
+        
+        
+        .state('noticiasWPIndividual', {
+            
+            url: "/noticias-afro/:id",
+            templateUrl: 'js/views/noticiasWP.individual.view.tpl',
+            controller: 'noticiasWPIndividualController as noticiasWPIndividual',
+            params: {
+                image: null,
+                message: null,
+                created_time: null
+            }
+            
+        })
+        
         
         
         ////////////////////////////////////////////////////////

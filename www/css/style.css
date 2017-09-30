@@ -48,6 +48,46 @@
 /******************* TODO  *********************/
 /***********************************************/
 
+.pequeno{
+    
+    font-size: 16px;
+    
+}
+
+.spinner-centrado{
+    
+    
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 25px);
+    
+    
+}
+
+.post-mensaje{
+    
+    position: absolute;
+    
+}
+
+.imagen-post{
+    
+    width: 100%;
+    
+}
+
+.radius{
+    
+    border-radius: 15px; 
+    
+}
+
+.spinner-centrado svg {
+    
+    height: 50px;
+    width: 50px;
+    
+}
 
 a.item-content{
     padding: 0px !important;
@@ -67,7 +107,7 @@ a.item-content{
     width: 100%;
     margin-top: 40px;
     position: relative;
-    top: -40px;
+    /*top: -40px; */
     
 }
 
@@ -81,7 +121,7 @@ a.item-content{
     justify-content: space-between;
     align-items: center;
     position: relative;
-    top: -44px;
+     /*top: -44px;*/
 }
 
 
@@ -89,7 +129,57 @@ a.item-content{
     
     color: white;
     font-family: BN;
-    font-size: 24px;
+    font-size: 24px !important;
+}
+
+.video{
+    
+    width: 100vw; 
+    height: 56.25vw;
+}
+
+.top-relative{
+    position: relative;
+    top: 86px;
+    
+}
+
+.titulo {
+    
+    margin-top: 20px;
+    
+}
+
+
+.titulo, .titulo-identado {
+    
+    font-family: BN;
+    color: black;
+    font-size: 22px;
+    text-align: center;
+}
+
+.titulo-identado {
+    
+    text-align: left;
+    padding-left: 50px;
+}
+
+.parrafo, .parrafo-identado {
+    
+    padding: 25px;
+    padding-top: 10px;
+    text-align: justify;
+    font-family: helvetica;
+    font-size: 14px;
+    color: #161515;
+
+}
+
+.parrafo-identado{
+    
+    padding-left: 50px;
+    
 }
 
 /************************************************/
@@ -227,5 +317,38 @@ a.item-content{
      border-bottom: 2px solid #db6d6d;
 }
 
+/************************************************/
+/*********** LINEAS DE ACCION *******************/
+/************************************************/
 
+.lineas-accion.bar-subheader{
+    
+    background-color: #ffcc00;
+    
+}
+
+.lineas-accion.menu-principal-seccion ion-item {
+     border-top: 2px solid #ffcc00;
+}
+
+.lineas-accion.menu-principal-seccion ion-item i{
+    
+     font-size: 22px;
+     color: #ffcc00;
+}
+
+.lineas-accion.menu-principal-seccion ion-item:last-child {
+     border-bottom: 2px solid #ffcc00;
+}
+
+
+
+
+
+
+.noticias.bar-subheader {
+    
+    background-color: #e6ff7a;
+    
+}
 
