@@ -168,7 +168,7 @@ angular.module('cnoa', ['ionic'])
         
         .state('noticiasWP', {
             
-            url: "/noticias-afro",
+            url: "/noticias-cnoa",
             templateUrl: 'js/views/noticiasWP.view.tpl',
             controller: 'noticiasWPController as noticiasWP'
             
@@ -177,13 +177,14 @@ angular.module('cnoa', ['ionic'])
         
         .state('noticiasWPIndividual', {
             
-            url: "/noticias-afro/:id",
+            url: "/noticias-cnoa/:id",
             templateUrl: 'js/views/noticiasWP.individual.view.tpl',
             controller: 'noticiasWPIndividualController as noticiasWPIndividual',
             params: {
                 image: null,
-                message: null,
-                created_time: null
+                date: null,
+                content: null,
+                title: null
             }
             
         })
@@ -201,6 +202,34 @@ angular.module('cnoa', ['ionic'])
             controller: 'galeriaController as galeria'
             
         })
+        
+        
+        ////////////////////////////////////////////////////////
+        ///////////////// Documentos y derivados /////////////////
+        ////////////////////////////////////////////////////////
+        
+        .state('documentos', {
+            
+            url: "/documentos",
+            templateUrl: 'js/views/documentos.view.tpl',
+            controller: 'documentosController as documentos'
+            
+        })
+        
+        .state('documentosIndividual', {
+            
+            url: "/documentos/:id",
+            templateUrl: 'js/views/documentosIndividual.view.tpl',
+            controller: 'documentosIndividualController as documentosIndividual',
+            params: {
+                
+                url: null,
+                title: null
+                
+            }
+            
+        })
+        
         
         
         $urlRouterProvider.when('', '/');

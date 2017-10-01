@@ -1,8 +1,11 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
-    <ion-content>
-        <div class="bar bar-subheader noticias">
+    
+    <div class="bar bar-subheader noticias">
             <h2 class="title" style="color: black">NOTICIA</h2>
         </div>
+    
+    <ion-content>
+        
         <img class="top-relative imagen-post" ng-src="{{noticiasFaceIndividual.post.image || 'img/logo-home-recortado.png'}}">
 
         <div class="parrafo top-relative">

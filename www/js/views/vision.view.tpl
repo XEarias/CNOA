@@ -1,8 +1,10 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
-    <ion-content>
-        <div class="bar bar-subheader quienes-somos">
+       <div class="bar bar-subheader quienes-somos">
             <h2 class="title">VISIÓN</h2>
         </div>
+    
+    <ion-content>
+     
         <img class="imagen-principal-seccion" src="img/fondos-secciones/nosotros.jpg">
 
         <div class="titulo">

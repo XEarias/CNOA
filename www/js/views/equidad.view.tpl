@@ -1,8 +1,10 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
-    <ion-content>
-        <div class="bar bar-subheader lineas-accion">
+     <div class="bar bar-subheader lineas-accion">
             <h2 class="title">EQUIDAD DE GÉNERO Y DERECHOS DE LAS MUJERES</h2>
         </div>
+    
+    <ion-content>
+       
         <iframe class="video top-relative" src="https://www.youtube.com/embed/m9-5FD607ZI?rel=0&amp;controls=0&amp;showinfo=0;" frameborder="0" allowfullscreen></iframe>
 
         <div class="titulo top-relative">

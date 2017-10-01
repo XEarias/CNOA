@@ -1,8 +1,10 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
-    <ion-content>
-        <div class="bar bar-subheader lineas-accion">
+ <div class="bar bar-subheader lineas-accion">
             <h2 class="title">LINEAS DE ACCIÓN</h2>
         </div>
+    
+    <ion-content>
+        
         <img class="imagen-principal-seccion" src="img/fondos-secciones/lineas-de-accion.jpg">
 
         <ion-list class="lineas-accion menu-principal-seccion">

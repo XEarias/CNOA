@@ -26,7 +26,7 @@
                 <span>NOTICIAS</span>
                 <i class="icon ion-chevron-right"></i>
             </ion-item>
-            <ion-item>
+            <ion-item ui-sref="documentos">
                 <img src="img/menu-iconos/principal/ICONOS -05.png">
                 <span>DOCUMENTOS</span>
                 <i class="icon ion-chevron-right"></i>

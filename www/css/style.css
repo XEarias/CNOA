@@ -67,8 +67,23 @@
 .post-mensaje{
     
     position: absolute;
+    height: 90%;
+    top: 5%;
+    padding-left: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    width: 90%;
     
 }
+
+
+.parrafo.wp *{
+    
+    max-width: 100%; 
+    
+}
+
 
 .imagen-post{
     
@@ -140,7 +155,7 @@ a.item-content{
 
 .top-relative{
     position: relative;
-    top: 86px;
+    top: 45px;
     
 }
 
