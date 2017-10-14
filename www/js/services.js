@@ -1,5 +1,52 @@
 angular.module("cnoa")
 
+    .filter("hashtags", [function () {
+
+
+        return function (cadena, hashtags) {
+
+            angular.forEach(hashtags, function (valor, key) {
+
+                var pattern = new RegExp("#" + valor, 'gi');
+                cadena = cadena.replace(pattern, "<span class='hashtag'>#" + valor + "</span>");
+
+            })
+
+            return cadena;
+        }
+
+
+    }])
+
+
+    .filter("hashtagsx", [function () {
+
+
+        return function (cadena) {
+
+            var partes = cadena.split(" ");
+            var nuevaCadena = [];
+            angular.forEach(partes, function (valor, key) {
+
+                if (valor.search("#") != -1) {
+
+                    nuevaCadena.push(" <span class='hashtag'>" + valor + "</span>");
+
+                } else {
+
+                    nuevaCadena.push(" " + valor);
+
+                }
+
+            })
+
+            return nuevaCadena.join("");
+        }
+
+
+    }])
+
+
     .filter("trim", [function () {
 
         return function (cadena, cantidad) {
@@ -8,13 +55,89 @@ angular.module("cnoa")
                 var cadena_formateada = cadena.slice(0, cantidad).trim();
 
                 return cadena.length > cantidad ? cadena_formateada + "..." : cadena;
-            } else{
-                
+            } else {
+
                 return cadena;
             }
         }
 
 }])
+
+
+    .filter("url", [function () {
+
+        return function (cadena) {
+
+            if (cadena) {
+
+                if (cadena.search("http") != -1) {
+                    /*
+                    var inicio = cadena.search("http");
+
+                    if (cadena.indexOf(" ", inicio) != -1) {
+
+                        var fin = cadena.indexOf(" ", inicio);
+
+                        var cadena_reemplazar = cadena.substr(inicio, fin - inicio - 2);
+
+                        return cadena.replace(cadena_reemplazar, "<a href='" + cadena_reemplazar + "'>" + cadena_reemplazar + "</a>");
+
+                    } else {
+
+                        var cadena_reemplazar = cadena.substr(inicio, cadena.length - inicio);
+
+                        return cadena.replace(cadena_reemplazar, "<a href='" + cadena_reemplazar + "'>" + cadena_reemplazar + "</a>");
+
+                    }
+
+
+                */
+
+
+                    var partes = cadena.split(" ");
+                    var nuevaCadena = [];
+                    angular.forEach(partes, function (valor, key) {
+
+                        if (valor.search("http") != -1) {
+
+                            nuevaCadena.push(" " + valor.split("http")[0] + " <a href='http" + valor.split("http")[1] + "'>http" + valor.split("http")[1] + "</a>");
+
+                        } else if (valor.search("www") != -1) {
+
+                            nuevaCadena.push(" " + valor.split("www")[0] + " <a href='http://www" + valor.split("www")[1] + "'>" + valor.split("www")[1] + "</a>");
+
+                        } else {
+
+                            nuevaCadena.push(" " + valor);
+
+                        }
+
+                    })
+
+                    return nuevaCadena.join("");
+
+
+                } else {
+
+                    return cadena
+                }
+
+
+                //return cadena.length > cantidad ? cadena_formateada + "..." : cadena;
+            } else {
+
+                return cadena;
+            }
+        }
+
+}])
+
+    .value('instagramValue', {
+        clientId: "6ec5839727ca4672b4fee1212e22cd46",
+        access_token: "5567543090.1677ed0.fdb54b86d249472393326af128afff4c"
+
+    })
+
 
     .value('WPValue', {
         user: "comunicaciones",
@@ -43,7 +166,7 @@ angular.module("cnoa")
         var promise = defered.promise;
 
 
-        $http.get("https://graph.facebook.com/oauth/access_token?client_id=" + facebookIDValue.id + "&client_secret=" + facebookIDValue.clave + "&grant_type=client_credentials", )
+        $http.get("https://graph.facebook.com/oauth/access_token?client_id=" + facebookIDValue.id + "&client_secret=" + facebookIDValue.clave + "&grant_type=client_credentials")
 
             .then(function (res) {
                 if (res.data.error) {
@@ -176,7 +299,8 @@ angular.module("cnoa")
                 $httpParamSerializer({
                     per_page: cantidad,
                     offset: salto,
-                    type: tipo
+                    type: tipo,
+                    categories: 9
                 }), {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -211,11 +335,11 @@ angular.module("cnoa")
             return promise;
 
         }
-        
-        
-        
-        
-         this.getDocs = function (cantidad, salto) {
+
+
+
+
+        this.getDocs = function (cantidad, salto) {
 
             var defered = $q.defer();
             var promise = defered.promise;
@@ -223,16 +347,12 @@ angular.module("cnoa")
             cantidad = cantidad ? cantidad : 10;
             salto = salto ? salto : 0
 
-            $http.get("http://convergenciacnoa.org/wp-json/wp/v2/docsapp?" +
-                $httpParamSerializer({
-                    per_page: cantidad,
-                    offset: salto
-                }), {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        Authorization: "Basic " + WPFactory
-                    }
-                }).then(function (res) {
+            $http.get("http://convergenciacnoa.org/wp-json/wp/v2/docsapp", {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    Authorization: "Basic " + WPFactory
+                }
+            }).then(function (res) {
 
                 var posts = [];
 
@@ -240,12 +360,14 @@ angular.module("cnoa")
                     if (valor.status == 'publish') {
 
                         var post = {
+                            content: valor.content.rendered,
                             date: valor.x_date,
                             title: valor.title.rendered,
                             image: valor.x_featured_media_original,
                             id: valor.id,
-                            url_descarga: valor.x_metadata
-                            
+                            url_descarga: valor.x_metadata.url_descarga,
+                            tipo_documento: valor.x_metadata.tipo_documento
+
                         };
 
                         posts.push(post);
@@ -265,6 +387,122 @@ angular.module("cnoa")
 
 
 
+
+
+}])
+
+    .service('instagramService', ["$http", "$q", "$httpParamSerializer", "instagramValue", "$sce", function ($http, $q, $httpParamSerializer, instagramValue, $sce) {
+
+
+
+        this.getMedia = function (cantidad) {
+
+
+            var defered = $q.defer();
+            var promise = defered.promise;
+
+            $http({
+                method: 'JSONP',
+                url: "https://api.instagram.com/v1/users/self/media/recent/",
+                params: {
+                    callback: 'JSON_CALLBACK',
+                    access_token: instagramValue.access_token
+                }
+            }).then(function (res) {
+
+                defered.resolve({
+                    medias: res.data.data,
+                    pagination: res.data.pagination.next_max_id
+                });
+
+            })
+
+            return promise;
+
+        }
+
+        this.getComments = function (id) {
+
+            var defered = $q.defer();
+            var promise = defered.promise;
+
+
+            $http({
+                method: 'JSONP',
+                url: "https://api.instagram.com/v1/media/" + id + "/comments",
+                params: {
+                    callback: 'JSON_CALLBACK',
+                    access_token: instagramValue.access_token
+                }
+            }).then(function (res) {
+
+                defered.resolve(res.data.data);
+
+            })
+
+            return promise;
+
+
+        }
+
+
+
+        this.siguiente = function (id) {
+
+
+            var defered = $q.defer();
+            var promise = defered.promise;
+
+
+            var params = {};
+
+
+            $http({
+                method: 'JSONP',
+                url: "https://api.instagram.com/v1/users/self/media/recent/",
+                params: {
+
+                    callback: 'JSON_CALLBACK',
+                    access_token: instagramValue.access_token,
+                    count: 18,
+                    next_max_id: id
+
+                }
+            }).then(function (res) {
+
+                defered.resolve({
+                    medias: res.data.data,
+                    pagination: res.data.pagination.next_max_id
+                });
+
+            })
+
+
+            return promise;
+
+
+
+        }
+
+}])
+
+    .factory("ultimoFactory", [function () {
+
+
+        return {
+            definir: function (tipo, id) {
+
+               localStorage.setItem(tipo, id);
+
+
+            },
+            obtener: function (tipo) {
+
+                return localStorage.getItem(tipo);
+
+
+            }
+        }
 
 
 }])

@@ -28,7 +28,11 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ng-cordova.js"></script>
     <script src="cordova.js"></script>
+    
+    
+    <script src="lib/angularjs-pdf/angular-pdf.min.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
@@ -39,13 +43,16 @@
     <script src="js/controllers/noticiasFaceController.js"></script>
     <script src="js/controllers/noticiasWPController.js"></script>
     <script src="js/controllers/documentosController.js"></script>
+    <script src="js/controllers/noticiasMenuController.js"></script>
     <script src="js/controllers/noticiasFaceIndividualController.js"></script>
     <script src="js/controllers/noticiasWPIndividualController.js"></script>
     <script src="js/controllers/documentosIndividualController.js"></script>
+    <script src="js/controllers/galeriaController.js"></script>
+    <script src="js/controllers/galeriaIndividualController.js"></script>
 </head>
 
 <body ng-app="cnoa">
-    <div class="bar bar-header barra-gris-principal">
+    <div class="bar bar-header barra-gris-principal"><i class="icon ion-home" style="font-size: 35px; margin-left: 20px; z-index:1000000" ui-sref="home"></i>
         <h1 class="title"><img src="img/logo-horizontal.png"></h1>
     </div>
 

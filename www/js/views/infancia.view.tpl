@@ -5,7 +5,7 @@
     
     <ion-content>
         
-        <iframe class="video top-relative" src="https://www.youtube.com/embed/SKn2Ta8jI5Q?rel=0&amp;controls=0&amp;showinfo=0;" frameborder="0" allowfullscreen></iframe>
+        <img class="imagen-principal-seccion" src="img/fondos-secciones/infancia.jpg">
 
         <div class="titulo top-relative">
             GENERACIONAL CON ÉNFASIS EN INFANCIA
@@ -17,6 +17,13 @@
 
         </div>
 
+         <div style="text-align:center; position:relative; top: 40px; font-family: BN; ">
+            <div style=" width: 350px; max-width: 70%; margin: auto;">
+                <a  ng-href="http://convergenciacnoa.org/generacional-con-enfasis-en-infancia/" class="button button-block button-positive" style="font-size: 26px; ">
+                  MAS INFORMACIÓN
+                </a>
+            </div>
+        </div>
 
 
     </ion-content>

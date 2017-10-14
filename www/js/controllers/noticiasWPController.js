@@ -20,7 +20,7 @@ angular.module('cnoa')
             if (xeap.listo.pull) {
 
                 xeap.listo.pull = false;
-                WPservice.getPost("post", 10).then(function (res) {
+                WPservice.getPost("post", 15).then(function (res) {
 
                     xeap.posts = res;
                     salto = 0;
@@ -29,6 +29,7 @@ angular.module('cnoa')
 
 
                     xeap.listo.pull = true;
+                    localStorage.setItem("wp", xeap.posts[0].id);
                     $scope.$broadcast('scroll.refreshComplete');
                 });
             }
@@ -44,7 +45,7 @@ angular.module('cnoa')
 
                 xeap.listo.scroll = false;
 
-                WPservice.getPost("post", 10, xeap.salto).then(function (res) {
+                WPservice.getPost("post", 15, xeap.salto).then(function (res) {
 
                     if (res) {
 
@@ -53,13 +54,14 @@ angular.module('cnoa')
                             xeap.posts.push(valor)
 
                         })
-                        xeap.salto = xeap.salto + 10;
+                        xeap.salto = xeap.salto + 15;
                     }
 
                 }).finally(function () {
 
                     xeap.listo.scroll = true;
                     $scope.$broadcast('scroll.infiniteScrollComplete');
+                    
                 });
             }
 
@@ -67,10 +69,14 @@ angular.module('cnoa')
         }
 
 
-        WPservice.getPost("post", 10).then(function (res) {
+        WPservice.getPost("post", 15).then(function (res) {
 
             xeap.posts = res;
 
+        }).finally(function(){
+            
+            localStorage.setItem("wp", xeap.posts[0].id);
+            
         })
 
 

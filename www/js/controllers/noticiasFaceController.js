@@ -23,7 +23,7 @@ angular.module('cnoa')
 
                 xeap.listo.pull = false;
 
-                facebookService.getPost(10).then(function (res) {
+                facebookService.getPost(15).then(function (res) {
 
                     xeap.posts = res.data;
 
@@ -45,7 +45,7 @@ angular.module('cnoa')
 
                     xeap.listo.pull = true;
                     
-                    
+                    localStorage.setItem("facebook", xeap.posts[0].id);
 
                     $scope.$broadcast('scroll.refreshComplete');
                 });
@@ -58,7 +58,7 @@ angular.module('cnoa')
             
             
             if (xeap.listo.scroll && xeap.siguiente) {
-                console.log("holas")
+
                 xeap.listo.scroll = false;
                 
                 facebookService.siguiente(xeap.siguiente).then(function(res){
@@ -98,7 +98,7 @@ angular.module('cnoa')
         }
 
 
-        facebookService.getPost(10).then(function (res) {
+        facebookService.getPost(15).then(function (res) {
 
             xeap.posts = res.data;
 
@@ -117,7 +117,12 @@ angular.module('cnoa')
             
              xeap.siguiente = res.paging.next;
 
-        });
+        }).finally(function(){
+            
+            
+            localStorage.setItem("facebook", xeap.posts[0].id);
+            
+        })
 
 
 }])

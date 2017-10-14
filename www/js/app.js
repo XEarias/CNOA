@@ -1,4 +1,4 @@
-angular.module('cnoa', ['ionic'])
+angular.module('cnoa', ['ionic', 'ngCordova', 'pdf'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -14,15 +14,21 @@ angular.module('cnoa', ['ionic'])
         });
     })
 
-    .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+    .config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$sceProvider", function ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider) {
 
 
+         $sceProvider.enabled(false);
 
+        
+        $httpProvider.defaults.cache = false;
+        
+        
         $stateProvider
             .state('home', {
                 url: '/',
                 templateUrl: 'js/views/home.view.tpl',
-                controller: 'homeController as home'
+                controller: 'homeController as home', 
+                cache: false
             })
 
         
@@ -140,7 +146,9 @@ angular.module('cnoa', ['ionic'])
         .state('noticiasMenu', {
             
             url: "/menu-noticias",
-            templateUrl: 'js/views/noticiasMenu.view.tpl'
+            templateUrl: 'js/views/noticiasMenu.view.tpl',
+            controller: 'noticiasMenuController as noticiasMenu',
+            cache: false
             
         })
         
@@ -203,6 +211,24 @@ angular.module('cnoa', ['ionic'])
             
         })
         
+        .state('galeriaIndividual', {
+            
+            url: "/galeria/:id",
+            templateUrl: 'js/views/galeriaIndividual.view.tpl',
+            controller: 'galeriaIndividualController as galeriaIndividual',
+            params:{
+                image: null,
+                tags: null,
+                comments: null,
+                text: null,
+                tags: null,
+                likes: null
+                
+                
+            }
+            
+        })
+        
         
         ////////////////////////////////////////////////////////
         ///////////////// Documentos y derivados /////////////////
@@ -223,8 +249,11 @@ angular.module('cnoa', ['ionic'])
             controller: 'documentosIndividualController as documentosIndividual',
             params: {
                 
-                url: null,
-                title: null
+                title: null,
+                content: null,
+                url_descarga: null,
+                image: null,
+                date: null
                 
             }
             

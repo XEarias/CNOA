@@ -13,6 +13,29 @@ angular.module('cnoa')
             pull: true
         }
 
+        xeap.filtro = "todos";
+        
+        xeap.filtroFinal = undefined;
+        
+
+        xeap.cambiarFiltro = function (valor) {
+
+            console.log(valor)
+
+            if (valor == "todos") {
+
+                xeap.filtroFinal = undefined;
+
+            } else {
+                
+                
+                xeap.filtroFinal = valor;
+
+            }
+
+        }
+
+
 
         xeap.ptr = function () {
 
@@ -20,7 +43,7 @@ angular.module('cnoa')
             if (xeap.listo.pull) {
 
                 xeap.listo.pull = false;
-                WPservice.getDocs( 10).then(function (res) {
+                WPservice.getDocs(10).then(function (res) {
 
                     xeap.posts = res;
                     salto = 0;
@@ -44,7 +67,7 @@ angular.module('cnoa')
 
                 xeap.listo.scroll = false;
 
-                WPservice.getDocs( 10, xeap.salto).then(function (res) {
+                WPservice.getDocs(10, xeap.salto).then(function (res) {
 
                     if (res) {
 
@@ -67,9 +90,13 @@ angular.module('cnoa')
         }
 
 
-        WPservice.getDocs( 10).then(function (res) {
+        WPservice.getDocs(10).then(function (res) {
 
             xeap.posts = res;
+
+        }).finally(function () {
+
+            console.log(xeap.posts[0])
 
         })
 

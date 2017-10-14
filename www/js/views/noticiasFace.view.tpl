@@ -1,7 +1,7 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
    
        <div class="bar bar-subheader noticias">
-            <h2 class="title" style="color: black">NOTICIAS</h2>
+            <h2 class="title" style="color: black">NOTICIAS AFRO</h2>
         </div>
     <ion-content>
      
@@ -16,7 +16,7 @@
             <ion-item class="item-thumbnail-left" ng-repeat="post in noticiasFace.posts track by post.id" ui-sref="noticiasFaceIndividual({id: post.id, image: post.attachments[0].media.image.src || 'img/logo-home-recortado.png', message: post.message, created_time: post.created_time})">
 
                 <img ng-src="{{ post.attachments[0].media.image.src || 'img/logo-home-recortado.png'}}">
-                <div class="post-mensaje">
+                <div class="post-mensaje" >
                     {{post.message | trim : 90}}
                 </div>
 

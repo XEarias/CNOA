@@ -1,6 +1,6 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
    <div class="bar bar-subheader noticias">
-            <h2 class="title" style="color: black">NOTICIA</h2>
+            <h2 class="title" style="color: black">NOTICIA CNOA</h2>
         </div>
     
     <ion-content>

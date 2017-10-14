@@ -17,6 +17,13 @@
         </div>
 
 
+        <div style="text-align:center; position:relative; top: 40px; font-family: BN; ">
+            <div style=" width: 350px; max-width: 70%; margin: auto;">
+                <a  ng-href="http://convergenciacnoa.org/equidad-de-genero-y-derechos-de-las-mujeres/" class="button button-block button-positive" style="font-size: 26px; ">
+                  MAS INFORMACIÓN
+                </a>
+            </div>
+        </div>
 
     </ion-content>
 </ion-view>

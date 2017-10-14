@@ -5,7 +5,7 @@
     
     <ion-content>
      
-        <img class="imagen-principal-seccion" src="img/fondos-secciones/nosotros.jpg">
+        <img class="imagen-principal-seccion" src="img/fondos-secciones/vision.jpg">
 
         <div class="titulo">
             VISIÓN

@@ -1,0 +1,8 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/xavier/Documents/GitHub/CNOA/platforms/android/cordova/lib/builders/GradleBuilder.js",
+        "C:/Users/xavier/Documents/GitHub/CNOA/platforms/android/cordova/lib/check_reqs.js",
+        "C:/Users/xavier/Documents/GitHub/CNOA/platforms/android/cordova/lib/device.js",
+        "C:/Users/xavier/Documents/GitHub/CNOA/platforms/android/cordova/lib/builders/GenericBuilder.js"
+    ]
+}

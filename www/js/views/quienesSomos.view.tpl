@@ -5,7 +5,7 @@
     
     <ion-content>
        
-        <img class="imagen-principal-seccion" src="img/fondos-secciones/nosotros.jpg">
+        <img class="imagen-principal-seccion" src="img/fondos-secciones/quienes-somos.jpg">
 
         <ion-list class="quienes-somos menu-principal-seccion">
             <ion-item ui-sref="nosotros">
