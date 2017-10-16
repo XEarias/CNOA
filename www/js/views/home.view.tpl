@@ -10,7 +10,7 @@
                 <i class="icon ion-chevron-right"></i>
                 
             </ion-item>
-            <ion-item ui-sref="estructura">
+            <ion-item ui-sref="estructuraOrganizacionalIndividual({id:1578})">
                 <img src="img/menu-iconos/principal/ICONOS -02.png">
                 <span>ESTRUCTURA ORGANIZACIONAL</span>
                 <i class="icon ion-chevron-right"></i>

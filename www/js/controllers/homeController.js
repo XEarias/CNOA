@@ -1,24 +1,42 @@
 angular.module('cnoa')
 
-    .controller("homeController", ["ultimoFactory", "instagramService", "WPservice", "facebookService", "$cordovaBadge", function (ultimoFactory, instagramService, WPservice, facebookService, $cordovaBadge) {
+    .controller("homeController", ["ultimoFactory", "instagramService", "WPservice", "facebookService", "$ionicPlatform", "$q", function (ultimoFactory, instagramService, WPservice, facebookService, $ionicPlatform, $q) {
 
         var xeap = this;
 
 
 
-        $cordovaBadge.hasPermission().then(function (yes) {
+/*
+        ////promesa que cambia el badge
+        var deferedNoticias = $q.defer();
+        var promiseNoticias = deferedNoticias.promise;
+
+
+        var deferedGaleria = $q.defer();
+        var promiseGaleria = deferedGaleria.promise;
+
+        promiseNoticias.then(function(res){
+            console.log("noticias")
+            console.log(res)
             
-               console.log("hola")
-              $cordovaBadge.set(3)
-
-
+        })
+        
+        promiseGaleria.then(function(res){
+            console.log("galeria")
+            console.log(res)
             
-        }, function (no) {
-            // You do not have permission
-        });
+        })
+*/
 
 
-        //localStorage.setItem("instagram", "1622781408095006093_5567543090");
+
+
+
+
+
+
+
+      
 
         /////////////////BLOQUE DE INSTAGRAM///////////////
 
@@ -28,6 +46,9 @@ angular.module('cnoa')
 
                 xeap.cantidadGaleria = res.medias.length + "+";
 
+
+                //promesa para el badge
+                //deferedGaleria.resolve(-1);
 
             });
 
@@ -51,10 +72,16 @@ angular.module('cnoa')
 
                     xeap.cantidadGaleria = res.medias.length + "+";
 
+
+                    //promesa para el badge
+                    deferedGaleria.resolve(-1);
+
                 } else if (posicion > 0) {
 
                     xeap.cantidadGaleria = posicion;
 
+                    //promesa para el badge
+                    //deferedGaleria.resolve(posicion);
                 }
 
             });
@@ -70,6 +97,10 @@ angular.module('cnoa')
         if (ultimoFactory.obtener("wp") === null || ultimoFactory.obtener("facebook") === null) {
 
             xeap.cantidadNoticias = "15+";
+            
+            
+            //promesa para el badge
+            //deferedNoticias.resolve(-1);
 
         } else {
 
@@ -134,13 +165,21 @@ angular.module('cnoa')
 
 
                     if (cantidadFacebook === null || cantidadWP === null) {
-                        console.log("hola")
+
                         xeap.cantidadNoticias = "15+";
+
+
+                        //promesa para el badge
+                        //deferedNoticias.resolve(-1);
 
                     } else {
 
 
                         xeap.cantidadNoticias = cantidadFacebook + cantidadWP;
+
+
+                        //promesa para el badge
+                        //deferedNoticias.resolve(xeap.cantidadNoticias);
 
                     }
 
@@ -152,6 +191,54 @@ angular.module('cnoa')
             })
 
         }
+        
+        
+        /*
+        
+        
+        $q.all([promiseGaleria, 2]).then(function (res) {
+            console.log("hola")
+
+            $ionicPlatform.ready(function () {
+                
+                
+
+                cordova.plugins.notification.badge.requestPermission(function (granted) {
+                    {
+
+                        if (res[0] === null || res[1] === null) {
+
+                            cordova.plugins.notification.badge.set(15);
+
+                        } else {
+
+                            var total = res[0] + res[1];
+                            if (total < 15) {
+
+                                cordova.plugins.notification.badge.set(total);
+                                
+                            } else{
+
+                                  cordova.plugins.notification.badge.set(15);
+                                
+                            }
+
+
+
+                        }
+                        
+                       
+
+                    };
+
+                })
+
+            })
+
+        })
+        
+        
+        */
 
 
 

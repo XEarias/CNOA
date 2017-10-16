@@ -16,6 +16,7 @@
             <b>Ver:</b> <select ng-model="documentos.filtro" ng-change="documentos.cambiarFiltro(documentos.filtro)">
                 <option value="todos" selected>Todos</option>
                 <option value="interes">Documentos de interés</option>
+                <option value="comunicado">Comunicados C.N.O.A</option>
                 <option value="publicacion">Publicaciones C.N.O.A</option>
             
             </select>

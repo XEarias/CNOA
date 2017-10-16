@@ -4,6 +4,8 @@
     </div>
 
     <ion-content>
+        
+        
         <div class="parrafo top-relative" style="top: 86px">
             <strong>Asamblea Nacional de la CNOA:</strong> Es el máximo espacio de deliberación y decisión de la CNOA y está integrada por todas las organizaciones representadas por un/a delegado/a con derecho a voz y voto. </div>
 
@@ -45,6 +47,6 @@
 
 
         <img class="imagen-principal-seccion" style="top: 60px;" src="img/fondos-secciones/estructura-cnoa.jpg">
-
+  
     </ion-content>
 </ion-view>

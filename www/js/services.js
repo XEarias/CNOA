@@ -335,6 +335,48 @@ angular.module("cnoa")
             return promise;
 
         }
+        
+        
+        
+        
+        this.getEstruc = function (id) {
+
+            var defered = $q.defer();
+            var promise = defered.promise;
+
+
+            $http.get("http://convergenciacnoa.org/wp-json/wp/v2/estrucapp/"+id, {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        Authorization: "Basic " + WPFactory
+                    }
+                }).then(function (res) {
+
+            
+
+                        var post = {
+                            content: res.data.content.rendered,
+                            title: res.data.title.rendered,
+                            image: res.data.x_featured_media_original,
+                            url_descarga: res.data.x_metadata.url_descarga, 
+                            video: res.data.x_metadata.url_video
+                            
+                        };
+
+                   
+
+                    defered.resolve(post);
+
+                })
+
+                
+
+            
+
+
+            return promise;
+
+        }
 
 
 

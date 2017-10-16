@@ -1,10 +1,10 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
-       <div class="bar bar-subheader quienes-somos">
-            <h2 class="title">VISIÓN</h2>
-        </div>
-    
+    <div class="bar bar-subheader quienes-somos">
+        <h2 class="title">VISIÓN</h2>
+    </div>
+
     <ion-content>
-     
+
         <img class="imagen-principal-seccion" src="img/fondos-secciones/vision.jpg">
 
         <div class="titulo">
@@ -14,26 +14,27 @@
         <div class="parrafo">
             La CNOA se visualiza a cinco años como una convergencia proactiva y planificada, que diseña, desarrolla y evalúa sus acciones de forma colectiva y participativa, además:
 
-        </div>
-        <div>
-            <div class="titulo-identado">
-                REPRESENTATIVA
-            </div>
-            
-            <div class="parrafo-identado">
-                Una convergencia representativa a nivel nacional e internacional, como referente para la participación, la promoción, la formulación de políticas públicas con un enfoque étnico-racial.
-            </div>
-            
-            <div class="titulo-identado">
-                INTEGRAL
-            </div>
-            
-            <div class="parrafo-identado">
-                Una convergencia representativa a nivel nacional e internacional, como referente para la participación, la promoción, la formulación de políticas públicas con un enfoque étnico-racial.
+            <div style="margin-top: 30px;">
+                <div class="titulo-identado">
+                    REPRESENTATIVA
+                </div>
+
+                <div class="parrafo-identado">
+                    Una convergencia representativa a nivel nacional e internacional, como referente para la participación, la promoción, la formulación de políticas públicas con un enfoque étnico-racial.
+                </div>
+
+                <div class="titulo-identado">
+                    INTEGRAL
+                </div>
+
+                <div class="parrafo-identado">
+                    Una convergencia representativa a nivel nacional e internacional, como referente para la participación, la promoción, la formulación de políticas públicas con un enfoque étnico-racial.
+                </div>
+
             </div>
 
-
         </div>
+
 
     </ion-content>
 </ion-view>

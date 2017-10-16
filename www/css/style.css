@@ -95,9 +95,9 @@ a.item-content {
 
 .imagen-principal-seccion {
     width: 100%;
-    margin-top: 85px;
+    margin-top: 125px;
     position: relative;
-    /*top: -40px; */
+    top: -40px; 
 }
 
 .menu-principal-seccion ion-item {
@@ -377,4 +377,11 @@ iframe.top-relative {
     top: 10%;
     left: 10%;
     font-family: BN;
+}
+
+
+.parrafo *{
+    
+    max-width: 100%;
+    
 }
