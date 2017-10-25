@@ -4,29 +4,79 @@ angular.module('cnoa')
 
         var xeap = this;
 
-
-
-/*
         ////promesa que cambia el badge
         var deferedNoticias = $q.defer();
-        var promiseNoticias = deferedNoticias.promise;
+        var promiseNoticias = deferedNoticias.promise.then(function (res) {
+
+            return res
+
+        });
 
 
         var deferedGaleria = $q.defer();
-        var promiseGaleria = deferedGaleria.promise;
+        var promiseGaleria = deferedGaleria.promise.then(function (res) {
 
-        promiseNoticias.then(function(res){
-            console.log("noticias")
-            console.log(res)
-            
-        })
+            return res
+
+        });
+
+
+
+        $q.all([promiseGaleria, promiseNoticias]).then(function (res) {
         
-        promiseGaleria.then(function(res){
-            console.log("galeria")
-            console.log(res)
-            
+            console.log("hola")
+            $ionicPlatform.ready(function () {
+
+
+
+                cordova.plugins.notification.badge.requestPermission(function (granted) {
+
+
+                    if (res[0] === null || res[1] === null) {
+
+                        cordova.plugins.notification.badge.set(15, function (badge) {
+                                
+                                console.log(badge)
+                                
+                            });
+                        
+                       
+
+                    } else {
+
+                        var total = res[0] + res[1];
+                        //console.log(total)
+                        if (total < 15) {
+
+                            cordova.plugins.notification.badge.set(total, function (badge) {
+                                console.log(badge)
+                            });
+
+                        } else {
+
+                            cordova.plugins.notification.badge.set(15, function (badge) {
+                                console.log(badge)
+                            });
+
+                        }
+
+
+
+                    }
+                    
+                    
+                    //localStorage.setItem("cantidadBadgeGaleria", res[0]);
+                    //localStorage.setItem("cantidadBadgeNoticias", res[1]);
+
+
+
+                });
+
+
+
+            })
+
         })
-*/
 
 
 
@@ -35,8 +85,6 @@ angular.module('cnoa')
 
 
 
-
-      
 
         /////////////////BLOQUE DE INSTAGRAM///////////////
 
@@ -48,12 +96,13 @@ angular.module('cnoa')
 
 
                 //promesa para el badge
-                //deferedGaleria.resolve(-1);
+                deferedGaleria.resolve(null);
 
             });
 
         } else {
 
+           
             instagramService.getMedia().then(function (res) {
 
                 var posicion = null;
@@ -74,14 +123,18 @@ angular.module('cnoa')
 
 
                     //promesa para el badge
-                    deferedGaleria.resolve(-1);
+                    deferedGaleria.resolve(posicion);
 
                 } else if (posicion > 0) {
 
                     xeap.cantidadGaleria = posicion;
 
                     //promesa para el badge
-                    //deferedGaleria.resolve(posicion);
+                    deferedGaleria.resolve(posicion);
+                } else{
+                    
+                    deferedGaleria.resolve(posicion);
+                    
                 }
 
             });
@@ -97,12 +150,14 @@ angular.module('cnoa')
         if (ultimoFactory.obtener("wp") === null || ultimoFactory.obtener("facebook") === null) {
 
             xeap.cantidadNoticias = "15+";
-            
-            
+
+
             //promesa para el badge
-            //deferedNoticias.resolve(-1);
+            deferedNoticias.resolve(null);
 
         } else {
+            
+             
 
             var cantidadWP = 0;
             var cantidadFacebook = 0;
@@ -130,6 +185,9 @@ angular.module('cnoa')
                     cantidadWP = posicion;
 
                 }
+                
+                
+
 
 
             }).finally(function () {
@@ -138,6 +196,8 @@ angular.module('cnoa')
 
                 facebookService.getPost(15).then(function (resFace) {
 
+                    
+                                    
                     var posicionFace = null;
 
 
@@ -170,7 +230,7 @@ angular.module('cnoa')
 
 
                         //promesa para el badge
-                        //deferedNoticias.resolve(-1);
+                        deferedNoticias.resolve(null);
 
                     } else {
 
@@ -179,7 +239,7 @@ angular.module('cnoa')
 
 
                         //promesa para el badge
-                        //deferedNoticias.resolve(xeap.cantidadNoticias);
+                        deferedNoticias.resolve(xeap.cantidadNoticias);
 
                     }
 
@@ -191,55 +251,11 @@ angular.module('cnoa')
             })
 
         }
-        
-        
-        /*
-        
-        
-        $q.all([promiseGaleria, 2]).then(function (res) {
-            console.log("hola")
-
-            $ionicPlatform.ready(function () {
-                
-                
-
-                cordova.plugins.notification.badge.requestPermission(function (granted) {
-                    {
-
-                        if (res[0] === null || res[1] === null) {
-
-                            cordova.plugins.notification.badge.set(15);
-
-                        } else {
-
-                            var total = res[0] + res[1];
-                            if (total < 15) {
-
-                                cordova.plugins.notification.badge.set(total);
-                                
-                            } else{
-
-                                  cordova.plugins.notification.badge.set(15);
-                                
-                            }
 
 
 
-                        }
-                        
-                       
-
-                    };
-
-                })
-
-            })
-
-        })
-        
-        
-        */
 
 
 
-}])
+
+            }])

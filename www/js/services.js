@@ -155,8 +155,8 @@ angular.module("cnoa")
 
     .value("facebookIDValue", {
 
-        id: "892885644056578",
-        clave: "38603b872b25d6ae7fcf524665142dda"
+        id: "1654611354589174",
+        clave: "a250d853c984179e8e7aaa5cb9400699"
 
     })
 

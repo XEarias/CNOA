@@ -47,7 +47,8 @@ angular.module('cnoa', ['ionic'])
             .state('quienesSomos', {
 
                 url: "/quienes-somos",
-                templateUrl: 'js/views/quienesSomos.view.tpl'
+                templateUrl: 'js/views/quienesSomos.view.tpl',
+                controller: 'quienesSomosController as quienesSomos'
 
             })
 
@@ -99,7 +100,8 @@ angular.module('cnoa', ['ionic'])
             .state('lineasAccion', {
 
                 url: "/lineas-de-accion",
-                templateUrl: 'js/views/lineasAccion.view.tpl'
+                templateUrl: 'js/views/lineasAccion.view.tpl',
+                controller: 'lineasAccionController as lineasAccion'
 
             })
 

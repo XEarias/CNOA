@@ -110,7 +110,7 @@ a.item-content {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    /*top: -44px;*/
+    top: -44px;
 }
 
 .bar-subheader .title {
@@ -119,9 +119,17 @@ a.item-content {
     font-size: 24px !important;
 }
 
-.video {
+.video, .hover-video {
     width: 100vw;
     height: 56.25vw;
+}
+
+.hover-video {
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
 }
 
 .top-relative {
@@ -344,7 +352,7 @@ a.item-content {
 }
 
 
-iframe.top-relative {
+iframe.top-relative, div.top-relative.video-contenedor {
     
     
     margin-top: 42px;
@@ -383,5 +391,51 @@ iframe.top-relative {
 .parrafo *{
     
     max-width: 100%;
+    
+}
+
+
+
+
+
+.popup-head{
+    
+    display: none;
+    
+}
+
+.popup-body{
+    
+    padding: 0px;
+    overflow: hidden;
+}
+
+.popup{
+    width: 100vw !important;
+    height: 75.25vw !important;
+    
+}
+
+.backdrop.active{
+    
+    
+    background-color: rgba(0, 0, 0, 0.9);
+    
+}
+
+
+.popup-buttons .button:last-child{
+    
+    
+    text-align:center;font-family: BN; width: 350px; max-width: 70%; margin: auto; font-size: 22px;
+}
+
+
+@media screen and (orientation: landscape){
+    
+    .popup-buttons{
+        
+        display: none;
+    }
     
 }

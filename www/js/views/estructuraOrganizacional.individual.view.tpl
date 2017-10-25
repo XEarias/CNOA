@@ -1,5 +1,5 @@
 <ion-view hide-back-button="false" hide-nav-bar="false">
-   <div class="bar bar-subheader lineas-accion">
+   <div class="bar bar-subheader estructura">
             <h2 class="title">{{estructuraOrganizacionalIndividual.datos.title}}</h2>
         </div>
     
@@ -7,7 +7,11 @@
         
         <img ng-if="estructuraOrganizacionalIndividual.datos.image && !estructuraOrganizacionalIndividual.datos.video" class="imagen-principal-seccion" ng-src="{{estructuraOrganizacionalIndividual.datos.image}}">
         
-        <iframe ng-if="estructuraOrganizacionalIndividual.datos.video" class="video top-relative" ng-src="{{estructuraOrganizacionalIndividual.datos.video}}" frameborder="0" allowfullscreen></iframe>
+        <div ng-if="estructuraOrganizacionalIndividual.datos.video" class="top-relative video-contenedor">
+            <iframe class="video" ng-src="{{estructuraOrganizacionalIndividual.datos.video}}" frameborder="0" allowfullscreen></iframe>
+            <div class="hover-video" ng-click="estructuraOrganizacionalIndividual.reproducirVideo()"></div>
+
+        </div>
 
         <div ng-if="!estructuraOrganizacionalIndividual.datos.image && !estructuraOrganizacionalIndividual.datos.video" style="margin-top: 60px;"></div>
         

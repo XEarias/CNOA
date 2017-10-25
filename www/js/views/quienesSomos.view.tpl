@@ -5,7 +5,7 @@
     
     <ion-content>
        
-        <img class="imagen-principal-seccion" src="img/fondos-secciones/quienes-somos.jpg">
+        <img class="imagen-principal-seccion" ng-src="{{quienesSomos.imagenPrincipal}}">
 
         <ion-list class="quienes-somos menu-principal-seccion">
             <ion-item ui-sref="quienesSomosIndividual({id:1561})">

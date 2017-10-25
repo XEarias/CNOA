@@ -5,7 +5,7 @@
     
     <ion-content>
         
-        <img class="imagen-principal-seccion" src="img/fondos-secciones/lineas-de-accion.jpg">
+        <img class="imagen-principal-seccion" ng-src="{{lineasAccion.imagenPrincipal}}">
 
         <ion-list class="lineas-accion menu-principal-seccion">
             <ion-item ui-sref="lineasAccionIndividual({id:1571})">

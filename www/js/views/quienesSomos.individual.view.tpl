@@ -7,7 +7,12 @@
         
         <img ng-if="quienesSomosIndividual.datos.image && !quienesSomosIndividual.datos.video" class="imagen-principal-seccion" ng-src="{{quienesSomosIndividual.datos.image}}">
         
-        <iframe ng-if="quienesSomosIndividual.datos.video" class="video top-relative" ng-src="{{quienesSomosIndividual.datos.video}}" frameborder="0" allowfullscreen></iframe>
+        <div ng-if="quienesSomosIndividual.datos.video" class="top-relative video-contenedor">
+            <iframe class="video" ng-src="{{quienesSomosIndividual.datos.video}}" frameborder="0" allowfullscreen></iframe>
+            <div class="hover-video" ng-click="quienesSomosIndividual.reproducirVideo()"></div>
+
+        </div>
+        
 
         <div ng-if="!quienesSomosIndividual.datos.image && !quienesSomosIndividual.datos.video" style="margin-top: 60px;"></div>
         
